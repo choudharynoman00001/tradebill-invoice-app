@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TradeBill - Make an estimate or invoice</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="top noprint"><div class="wrap"><a class="logo" href="./">Trade<b>Bill</b></a><div><span id="plan" class="tag">Free</span> <button class="btn sm" id="upg">Go Pro</button></div></div></header>
+<main class="wrap">
+<div class="tabs noprint"><button data-t="edit" class="on">New document</button><button data-t="hist">My documents</button><button data-t="biz">My business</button></div>
+<div id="v-edit" class="app">
+ <div class="form card noprint">
+  <div id="quota" class="banner"></div>
+  <div class="row2"><div><label>Type</label><select id="type"><option value="Invoice">Invoice</option><option value="Estimate">Estimate</option></select></div><div><label>Number</label><input id="num"></div></div>
+  <div class="row2"><div><label>Date</label><input id="date" type="date"></div><div><label>Due date</label><input id="due" type="date"></div></div>
+  <label>Client name</label><input id="cname" list="clients" autocomplete="off"><datalist id="clients"></datalist>
+  <label>Client address / email</label><textarea id="caddr"></textarea>
+  <label>Items</label><div id="items"></div><button class="btn alt sm" id="addi">+ Add line</button>
+  <div class="row2"><div><label>Discount (amount)</label><input id="disc" type="number" min="0" step="0.01" value="0"></div><div><label>Deposit paid</label><input id="dep" type="number" min="0" step="0.01" value="0"></div></div>
+  <label>Notes</label><textarea id="notes" placeholder="Thanks for your business. Payment due within 14 days."></textarea>
+  <div class="bar"><button class="btn" id="save">Save</button><button class="btn alt" id="pdf">Download PDF / Print</button><button class="btn alt" id="new">New</button></div>
+ </div>
+ <div><div id="doc"></div></div>
+</div>
+<div id="v-hist" style="display:none" class="card"><div class="bar" style="margin:0 0 10px"><button class="btn alt sm" id="csv">Export CSV (Pro)</button></div><table class="list" id="hist"></table></div>
+<div id="v-biz" style="display:none" class="card"><div class="row2"><div><label>Business name</label><input id="bname"></div><div><label>Phone</label><input id="bphone"></div></div>
+<label>Address and email</label><textarea id="baddr"></textarea>
+<div class="row2"><div><label>Currency</label><select id="cur"><option value="USD">US dollar ($)</option><option value="GBP">British pound (£)</option></select></div><div><label>Tax name</label><select id="taxn"><option>Sales tax</option><option>VAT</option><option>Tax</option></select></div></div>
+<div class="row2"><div><label>Tax rate %</label><input id="taxr" type="number" min="0" step="0.01" value="0"></div><div><label>Starting number</label><input id="start" type="number" min="1" value="1001"></div></div>
+<label>How to pay you (bank details, Zelle, PayPal, etc.)</label><textarea id="pay"></textarea>
+<label>Logo (Pro)</label><input type="file" id="logo" accept="image/*"><div class="bar"><button class="btn" id="bsave">Save business details</button></div></div>
+</main>
+<div class="modal" id="m"><div class="card"><h3>Go Pro - <span id="mp"></span></h3><ul class="tick"><li>Unlimited documents</li><li>Your logo, no footer</li><li>Saved clients, CSV export</li></ul>
+<a class="btn" id="buy" target="_blank" rel="noopener">Subscribe</a><p class="small muted" id="soon" style="display:none">Checkout is not open yet. Check back soon.</p>
+<label>Already have a license key?</label><input id="key" placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"><div class="bar"><button class="btn" id="act">Activate</button><button class="btn alt" id="mc">Close</button></div><p id="kmsg" class="small"></p></div></div>
+<script src="config.js"></script><script src="app.js"></script></body></html>
